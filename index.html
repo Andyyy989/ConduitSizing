@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conduit Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Conduit Calculator</h1>
+        <div class="calculator">
+            <label for="inputBox">Enter your wire type</label>
+            <select name="type" id="type">
+                    <option value="volvo">volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+            </select>    
+            <br>
+            <label for="inputBox2">Enter your amount 1</label>
+            <input type="text" id="inputBox2" name="inputBox2">
+            <label for="inputBox3">Enter your wire size 1</label>
+            <input type="text" id="inputBox3" name="inputBox3">
+            <br>
+            <label for="inputBox4">Enter your amount 2</label>
+            <input type="text" id="inputBox4" name="inputBox4">
+            <label for="inputBox5">Enter your wire size 2</label>
+            <input type="text" id="inputBox5" name="inputBox5">
+            <br>
+            <button id="btn">Calculate Size</button>
+            <p id="result">Your conduit size is 22mm</p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

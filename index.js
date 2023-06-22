@@ -56,6 +56,7 @@ function calc() {
     const type = RawType.value;
     const Ctype = RawCType.value;
     var area = 0;
+    var diameter = 0;
 
     switch (type) {
         case "RRRU6":
@@ -68,8 +69,12 @@ function calc() {
             area = 0;
     }
 
-    if (Ctype == "RM") {
-        var diameter = findLargestValueKey(RM, parseFloat(area));
+    switch (Ctype) {
+        case "RM":
+            diameter = findLargestValueKey(RM, parseFloat(area));
+            break;
+        default:
+            diameter = 0;
     }
 
     result.innerText = `Your conduit size is ${diameter}mm`;

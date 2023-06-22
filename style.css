@@ -39,3 +39,15 @@ button {
 p {
     font-size: 32px;
 }
+
+#type option[value = "RRRU6"] {
+    background-color: lightgreen;
+}
+
+#type option[value = "RRRU10"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "RM"] {
+    background-color: lightgreen;
+}

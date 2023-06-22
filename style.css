@@ -52,6 +52,10 @@ p {
     background-color: lightgreen;
 }
 
+#type option[value = "RU1020"] {
+    background-color: lightgreen;
+}
+
 /* Conduit options */
 
 #Ctype option[value = "RM"] {
@@ -63,5 +67,9 @@ p {
 }
 
 #Ctype option[value = "RP"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "EM"] {
     background-color: lightgreen;
 }

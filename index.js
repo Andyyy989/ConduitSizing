@@ -37,6 +37,13 @@ const TTRU = {
     "900": 914.88, "1000": 995.38, "1250": 1199.5, "1500": 1499.5, "1750": 1651.8, "2000": 1851.26 
 };
 
+const RU1020 = {
+    "14": 18.78, "12": 22.56, "10": 28.18, "8": 47.42, "6": 59.86, "4": 77.76, "3": 89.25, "2": 103.51, "1": 137.89, 
+    "1/0": 159.93, "2/0": 187.23, "3/0": 220.62, "4/0": 261.01, "250": 319.84, "300": 365.76, "350": 411.15, 
+    "400": 455.03, "450": 498.36, "500": 540.36, "600": 622.34, "700": 747.48, "750": 789.74, "800": 830.6, 
+    "900": 915.95, "1000": 996.5, "1250": 1247.86, "1500": 1450.85, "1750": 1653.24, "2000": 1852.79
+};
+
 // const a = {
 //     "14": , "12": , "10": , "8": , "6": , "4": , "3": , "2": , "1": , 
 //     "1/0": , "2/0": , "3/0": , "4/0": , "250": , "300": , "350": , 
@@ -60,6 +67,11 @@ const RP = {
     "78": 1824.15, "91": 2455.02, "103": 3147.88, "129": 4795.72, "155": 7045.04, "200": 12489.83
 };
 
+const EM = {
+    "16": 74.51, "21": 132.03, "27": 215.65, "35": 376.1, "41": 515.3, "53": 852.76, "63": 1513.1, 
+    "78": 2280.49, "91": 2980.35, "103": 3801.33
+};
+
 function findLargestValueKey(obj, target) {
     var closestValue = Infinity;
     var closestValueKey = null;
@@ -71,12 +83,12 @@ function findLargestValueKey(obj, target) {
         }
     }
   
-    return closestValueKey;
-    // if (largestValueKey !== null) {
-    //   console.log("Key:", largestValueKey);
-    // } else {
-    //   console.log("No key found that satisfies the condition.");
-    // }
+    
+    if (closestValueKey !== null) {
+        return closestValueKey;
+    } else {
+        return null;
+    }
 }
 
 function calc() {
@@ -101,6 +113,9 @@ function calc() {
         case "TTRU":
             area = parseInt(amount1) * parseFloat(TTRU[wireSize1]) + parseFloat(TTRU[wireSize2]);
             break;
+        case "RU1020":
+            area = parseInt(amount1) * parseFloat(RU1020[wireSize1]) + parseFloat(RU1020[wireSize2]);
+            break;
         default:
             area = 0;
     }
@@ -115,11 +130,18 @@ function calc() {
         case "RP":
             diameter = findLargestValueKey(RP, parseFloat(area));
             break;
+        case "EM":
+            diameter = findLargestValueKey(EM, parseFloat(area));
+            break;
         default:
             diameter = 0;
     }
 
-    result.innerText = `Your conduit size is ${diameter}mm`;
+    if (diameter != null){
+        result.innerText = `Your conduit size is ${diameter}mm`;
+    } else {
+        result.innerText = `Can't Find a Suitable Conduit`;
+    }
 }
 
 btnEl.addEventListener("click", calc);

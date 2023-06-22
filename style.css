@@ -2,10 +2,6 @@ h1 {
     color: blue;
 }
 
-h2 {
-    text-align: center;
-}
-
 .container {
     text-align: center;
     background-color: white;
@@ -48,6 +44,24 @@ p {
     background-color: lightgreen;
 }
 
+#type option[value = "RRRRRRJ6"] {
+    background-color: lightgreen;
+}
+
+#type option[value = "TTRU"] {
+    background-color: lightgreen;
+}
+
+/* Conduit options */
+
 #Ctype option[value = "RM"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "FM"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "RP"] {
     background-color: lightgreen;
 }

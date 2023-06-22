@@ -14,10 +14,10 @@ h1 {
 
 
 input {
-    padding: 8px;
+    padding: 1px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    max-width: 300px;
+    max-width: 50px;
     margin: 15px;
 }
 

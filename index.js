@@ -291,7 +291,9 @@ function calc() {
             diameter = 0;
     }
 
-    if (diameter != null){
+    if (amount1 == 0){
+        result.innerText = `Please enter the number of conductors`;
+    } else if (diameter != null){
         result.innerText = `Your conduit size is ${diameter}mm`;
     } else {
         result.innerText = `Can't Find a Suitable Conduit`;

@@ -1,5 +1,10 @@
 h1 {
     color: blue;
+    font-size: 50px;
+}
+
+body {
+    background: aliceblue;
 }
 
 .container {
@@ -32,9 +37,15 @@ button {
     transition: background-color 0.3s ease;
 }
 
+button:hover{
+    background-color: #ddd;
+}
+
 p {
     font-size: 32px;
 }
+
+/* conductor options */
 
 #type option {
     background-color: lightgreen;

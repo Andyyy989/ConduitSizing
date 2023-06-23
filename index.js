@@ -101,10 +101,25 @@ const RP = {
     "78": 1824.15, "91": 2455.02, "103": 3147.88, "129": 4795.72, "155": 7045.04, "200": 12489.83
 };
 
+const RR = {
+    "53": 810.73, "78": 1824.15, "91": 2455.02, "103": 3147.88, "129": 5015.34, "155": 7045.04
+};
+
+const MLF = {
+    "12": 47.45, "16": 78.43, "21": 136.3, "27": 219.62, "35": 385.95, "41": 502.91, "53": 827.09,
+    "63": 1246.5, "78": 1910.36, "91": 2482.87, "103": 3242.93
+};  
+
+const NMLF = {
+    "12": 45.77, "16": 75.38, "21": 131.38, "27": 210.9, "35": 374.8, "41": 502.91, "53": 839.39
+};
+
 const EM = {
     "16": 74.51, "21": 132.03, "27": 215.65, "35": 376.1, "41": 515.3, "53": 852.76, "63": 1513.1, 
     "78": 2280.49, "91": 2980.35, "103": 3801.33
 };
+
+
 
 function findLargestValueKey(obj, target) {
     var closestValue = Infinity;
@@ -191,9 +206,19 @@ function calc() {
         case "RP":
             diameter = findLargestValueKey(RP, parseFloat(area));
             break;
+        case "RR":
+            diameter = findLargestValueKey(RR, parseFloat(area));
+            break;
+        case "MLF":
+            diameter = findLargestValueKey(MLF, parseFloat(area));
+            break
+        case "NMLF":
+            diameter = findLargestValueKey(NMLF, parseFloat(area));
+            break;
         case "EM":
             diameter = findLargestValueKey(EM, parseFloat(area));
             break;
+        
         default:
             diameter = 0;
     }

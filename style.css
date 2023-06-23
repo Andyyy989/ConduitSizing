@@ -93,6 +93,18 @@ p {
     background-color: lightgreen;
 }
 
+#Ctype option[value = "RR"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "MLF"] {
+    background-color: lightgreen;
+}
+
+#Ctype option[value = "NMLF"] {
+    background-color: lightgreen;
+}
+
 #Ctype option[value = "EM"] {
     background-color: lightgreen;
 }

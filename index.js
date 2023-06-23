@@ -65,12 +65,25 @@ const RJ10 = {
     "900": 998.18, "1000": 1082.2, "1250": 1461.67, "1500": 1680.74, "1750": 1898.08, "2000": 2111.48
 };
 
-// const a = {
-//     "14": , "12": , "10": , "8": , "6": , "4": , "3": , "2": , "1": , 
-//     "1/0": , "2/0": , "3/0": , "4/0": , "250": , "300": , "350": , 
-//     "400": , "450": , "500": , "600": , "700": , "750": , "800": , 
-//     "900": , "1000": , "1250": , "1500": , "1750": , "2000": 
-// };
+const RJ20 = {
+    "14": 25.07, "12": 29.42, "10": 44.3, "8": 60.68, "6": 74.66, "4": 94.52, "3": 107.15, "2": 138.09, "1": 183.61, 
+    "1/0": 208.93, "2/0": 239.98, "3/0": 277.59, "4/0": 355.99, "250": 424.19, "300": 476.84, "350": 528.48, 
+    "400": 578.08, "450": 626.8, "500": 673.8, "600": 808.27, "700": 902.06, "750": 948.42, "800": 993.15, 
+    "900": 1086.28, "1000": 1173.85, "1250": 1567.89, "1500": 1794.51, "1750": 2018.86, "2000": 2388.77
+};
+
+const TT = {
+    "14": 8.87, "12": 11.85, "10": 15.69, "8": 28.18, "6": 46.69, "4": 62.63, "3": 72.99, "2": 85.93, "1": 122.52, 
+    "1/0": 143.78, "2/0": 169.72, "3/0": 201.06, "4/0": 239.7, "250": 296.51, "300": 340.45, "350": 381.86, 
+    "400": 426.75, "450": 468.75, "500": 509.5, "600": 627.24, "700": 710.16, "750": 751.36, "800": 792.73, 
+    "900": 874.59, "1000": 953.34, "1250": 1199.5, "1500": 1398.67, "1750": 1597.51, "2000": 1793.76
+};
+
+const TTN = {
+    "14": 6.16, "12": 8.45, "10": 13.66, "8": 23.67, "6": 32.67, "4": 53.2, "3": 62.77, "2": 74.82, "1": 100.82, 
+    "1/0": 120.18, "2/0": 143.99, "3/0": 172.96, "4/0": 208.93, "250": 255.6, "300": 296.81, "350": 355.56, 
+    "400": 377.72, "450": 417.28, "500": 455.79
+};
 
 // Data for conduit types
 const RM = {
@@ -111,6 +124,16 @@ function findLargestValueKey(obj, target) {
     }
 }
 
+function hideOption(selectElement, optionValue) {
+    var options = selectElement.options;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value === optionValue) {
+            options[i].style.display = 'none';
+            break;
+        }
+    }
+}
+
 function calc() {
     const amount1 = RawAmount1.value;
     const wireSize1 = RawWireSize1.value;
@@ -145,6 +168,15 @@ function calc() {
         case "RJ10":
             area = parseInt(amount1) * parseFloat(RJ10[wireSize1]) + parseFloat(RJ10[wireSize2]);
             break;
+        case "RJ20":
+            area = parseInt(amount1) * parseFloat(RJ20[wireSize1]) + parseFloat(RJ20[wireSize2]);
+            break;
+        case "TT":
+            area = parseInt(amount1) * parseFloat(TT[wireSize1]) + parseFloat(TT[wireSize2]);
+            break;
+        case "TTN":
+            area = parseInt(amount1) * parseFloat(TTN[wireSize1]) + parseFloat(TTN[wireSize2]);
+            break;
         default:
             area = 0;
     }
@@ -173,4 +205,32 @@ function calc() {
     }
 }
 
+function hide() {
+    const type = RawType.value;
+    if (type == "TTN") {
+        hideOption(RawWireSize1, "600");
+        hideOption(RawWireSize1, "700");
+        hideOption(RawWireSize1, "750");
+        hideOption(RawWireSize1, "800");
+        hideOption(RawWireSize1, "900");
+        hideOption(RawWireSize1, "1000");
+        hideOption(RawWireSize1, "1250");
+        hideOption(RawWireSize1, "1500");
+        hideOption(RawWireSize1, "1750");
+        hideOption(RawWireSize1, "2000");
+        
+        hideOption(RawWireSize2, "600");
+        hideOption(RawWireSize2, "700");
+        hideOption(RawWireSize2, "750");
+        hideOption(RawWireSize2, "800");
+        hideOption(RawWireSize2, "900");
+        hideOption(RawWireSize2, "1000");
+        hideOption(RawWireSize2, "1250");
+        hideOption(RawWireSize2, "1500");
+        hideOption(RawWireSize2, "1750");
+        hideOption(RawWireSize2, "2000");
+    }
+}
+
 btnEl.addEventListener("click", calc);
+RawType.addEventListener("click", hide);

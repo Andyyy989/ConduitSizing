@@ -68,6 +68,17 @@ p {
     background-color: lightgreen;
 }
 
+#type option[value = "RJ20"] {
+    background-color: lightgreen;
+}
+
+#type option[value = "TT"] {
+    background-color: lightgreen;
+}
+
+#type option[value = "TTN"] {
+    background-color: lightgreen;
+}
 /* Conduit options */
 
 #Ctype option[value = "RM"] {

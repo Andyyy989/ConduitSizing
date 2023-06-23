@@ -229,6 +229,13 @@ function hide() {
         hideOption(RawWireSize2, "1500");
         hideOption(RawWireSize2, "1750");
         hideOption(RawWireSize2, "2000");
+    } else {
+        for (var i = 0; i < RawWireSize1.options.length; i++) {
+            RawWireSize1.options[i].style.display = 'block';
+        }
+        for (var i = 0; i < RawWireSize2.options.length; i++) {
+            RawWireSize2.options[i].style.display = 'block';
+        }
     }
 }
 

@@ -36,75 +36,13 @@ p {
     font-size: 32px;
 }
 
-#type option[value = "RRRU6"] {
+#type option {
     background-color: lightgreen;
 }
 
-#type option[value = "RRRU10"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RRRRRRJ6"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "TTRU"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RU1020"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RJ1020"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RU20"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RJ10"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "RJ20"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "TT"] {
-    background-color: lightgreen;
-}
-
-#type option[value = "TTN"] {
-    background-color: lightgreen;
-}
 /* Conduit options */
 
-#Ctype option[value = "RM"] {
+#Ctype option {
     background-color: lightgreen;
 }
 
-#Ctype option[value = "FM"] {
-    background-color: lightgreen;
-}
-
-#Ctype option[value = "RP"] {
-    background-color: lightgreen;
-}
-
-#Ctype option[value = "RR"] {
-    background-color: lightgreen;
-}
-
-#Ctype option[value = "MLF"] {
-    background-color: lightgreen;
-}
-
-#Ctype option[value = "NMLF"] {
-    background-color: lightgreen;
-}
-
-#Ctype option[value = "EM"] {
-    background-color: lightgreen;
-}

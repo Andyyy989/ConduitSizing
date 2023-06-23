@@ -119,7 +119,49 @@ const EM = {
     "78": 2280.49, "91": 2980.35, "103": 3801.33
 };
 
+const ENM = {
+    "16": 66.78, "21": 121.43, "27": 202.2, "35": 357.42, "41": 491.91, "53": 822.91
+};
 
+const RRCMI = {
+    "16": 93.7, "21": 160.6, "27": 270.44, "35": 456.04, "41": 613.5, "53": 994.37, "63": 1521.84,
+    "78": 2261.26, "103": 3782, "129": 5822.66, "155": 8249.89
+};
+
+const RRCMD = {
+    "16": 44.79, "21": 105.09, "27": 190.74, "35": 301.71, "41": 438.02, "53": 794.54, "63": 1246.9,
+    "78": 1799.81, "91": 2454.46, "103": 3210.45, "129": 5006.61
+};
+
+const HDPE4 = {
+    "16": 67.61, "21": 122.91, "27": 202.68, "35": 359.33, "41": 493.4, "53": 822.91, "63": 1173.97,
+    "78": 1821.28, "103": 3157.95, "129": 4980.47, "155": 7210.66, "200": 12521.17
+};
+
+const HDPE8 = {
+    "16": 51.07, "21": 98.42, "27": 167.06, "35": 303.86, "41": 421.53, "53": 718.4, "63": 1019.63,
+    "78": 1600.67, "103": 2809.08, "129": 4467.52, "155": 6411.67
+};
+
+const HDPE9 = {
+    "16": 75.18, "21": 121.3, "27": 194.16, "35": 311.92, "41": 409.42, "53": 641.56, "63": 937.59,
+    "78": 1391.8, "103": 2289.07, "129": 3499.32, "155": 4958.34, "200": 8406.4, "275": 13053.55
+};
+
+const HDPE11 = {
+    "16": 83.47, "21": 135, "27": 215.82, "35": 348.58, "41": 460.12, "53": 721.11, "63": 1053.92,
+    "78": 1565.88, "103": 2574.18, "129": 3935.89, "155": 5575.56, "200": 9455.81, "275": 14683.21
+};
+
+const HDPE135 = {
+    "16": 91.01, "21": 146.98, "27": 234.65, "35": 378.93, "41": 500.9, "53": 791.06, "63": 1156.75,
+    "78": 1718.01, "103": 2825.15, "129": 4318.92, "155": 6119.75, "200": 10376.5, "275": 16115.65
+};
+
+const HDPE155 = {
+    "16": 95.44, "21": 153.99, "27": 245.77, "35": 396.81, "41": 524.24, "53": 830, "63": 1217,
+    "78": 1807.43, "103": 2973.63, "129": 4545.79, "155": 6441.33, "200": 10918.96, "275": 16960.37
+};
 
 function findLargestValueKey(obj, target) {
     var closestValue = Infinity;
@@ -218,7 +260,33 @@ function calc() {
         case "EM":
             diameter = findLargestValueKey(EM, parseFloat(area));
             break;
-        
+        case "ENM":
+            diameter = findLargestValueKey(ENM, parseInt(area));
+            break;
+        case "RRCMI":
+            diameter = findLargestValueKey(RRCMI, parseInt(area));
+            break;
+        case "RRCMD":
+            diameter = findLargestValueKey(RRCMD, parseInt(area));
+            break;
+        case "HDPE4":
+            diameter = findLargestValueKey(HDPE4, parseInt(area));
+            break;
+        case "HDPE8":
+            diameter = findLargestValueKey(HDPE8, parseInt(area));
+            break;
+        case "HDPE9":
+            diameter = findLargestValueKey(HDPE9, parseInt(area));
+            break;
+        case "HDPE11":
+            diameter = findLargestValueKey(HDPE11, parseInt(area));
+            break;
+        case "HDPE135":
+            diameter = findLargestValueKey(HDPE135, parseInt(area));
+            break;
+        case "HDPE155":
+            diameter = findLargestValueKey(HDPE155, parseInt(area));
+            break;
         default:
             diameter = 0;
     }

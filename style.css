@@ -57,6 +57,11 @@ p {
     background-color: lightgreen;
 }
 
+#amperage,
+label[for="amperage"] {
+  visibility: hidden;
+}
+
 #WireSize2,
 label[for="WireSize2"] {
   visibility: hidden;

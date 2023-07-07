@@ -9,6 +9,7 @@ const result = document.getElementById("result");
 const RawType = document.getElementById("type");
 const RawCType = document.getElementById("Ctype");
 const Rawcheckbox = document.getElementById('myCheckbox');
+const Rawcheckbox2 = document.getElementById('myCheckbox2');
 const labelAmperage = document.querySelector('label[for="amperage"]');
 const labelManual = document.querySelector('label[for="WireSize2"]');
 
@@ -175,17 +176,30 @@ const amp = {
     "500": 4000, "700": 5000, "800": 6000 
 };
 
+//
+const sizeToAmp = {
+    "12": 25, "10": 35, "8": 50, "6": 65, "4": 85, "3": 100, "2": 115, "1": 130, 
+    "1/0": 150, "2/0": 175, "3/0": 200, "4/0": 230, "250": 255, "300": 285, "350": 310, 
+    "450": 380, "500": 380, "750": 475, "1000": 545, "1250": 590, "1500": 625, "1750": 650, "2000": 665
+};
+
 function swap() {
-    if (Rawcheckbox.checked) {
-        RawWireSize2.style.visibility = 'visible';
-        labelManual.style.visibility = 'visible';
+    if (!Rawcheckbox.checked) {
         Rawamperage.style.visibility = 'hidden';
         labelAmperage.style.visibility = 'hidden';
     } else {
-        RawWireSize2.style.visibility = 'hidden';
-        labelManual.style.visibility = 'hidden';
         Rawamperage.style.visibility = 'visible';
         labelAmperage.style.visibility = 'visible';
+    }
+}
+
+function swap2() {
+    if (!Rawcheckbox2.checked) {
+        RawWireSize2.style.visibility = 'hidden';
+        labelManual.style.visibility = 'hidden';
+    } else {
+        RawWireSize2.style.visibility = 'visible';
+        labelManual.style.visibility = 'visible';
     }
 }
 
@@ -221,17 +235,19 @@ function calc() {
     const amount1 = RawAmount1.value;
     const wireSize1 = RawWireSize1.value;
     const wireSize2 = RawWireSize2.value;
-    const Amp = RawAmp.value;
     const type = RawType.value;
     const Ctype = RawCType.value;
     var area = 0;
     var diameter = 0;
-    var bondSize = 0;
-
+    var bondSize;
+     
     if (Rawcheckbox.checked) {
+        const Amp = RawAmp.value;
+        bondSize = findLargestValueKey(amp, parseFloat(Amp));
+    } else if (Rawcheckbox2.checked) {
         bondSize = wireSize2;
     } else {
-        bondSize = findLargestValueKey(amp, parseFloat(Amp));
+        bondSize = findLargestValueKey(amp, parseFloat(sizeToAmp[wireSize1])); 
     }
 
     switch (type) {
@@ -328,8 +344,9 @@ function calc() {
     if (amount1 == 0){
         result.innerText = `Please enter the number of conductors`;
     } else if (diameter != null){
-        result.innerText = `Your conduit size is ${diameter}mm`;
+        result.innerText = `Your Bonding Conductor Size is ${bondSize}AWG \n Your conduit size is ${diameter}mm`;
     } else {
+        var b = Rawcheckbox.checked;
         result.innerText = `Can't Find a Suitable Conduit`;
     }
 }
@@ -371,3 +388,4 @@ function hide() {
 btnEl.addEventListener("click", calc);
 RawType.addEventListener("click", hide);
 Rawcheckbox.addEventListener("click", swap);
+Rawcheckbox2.addEventListener("click", swap2);

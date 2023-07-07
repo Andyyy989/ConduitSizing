@@ -337,11 +337,11 @@ function calc() {
 function hide() {
     const type = RawType.value;
     if (type == "TTN") {
-        hideOption(RawWireSize1, "600");
-        hideOption(RawWireSize1, "700");
+        // hideOption(RawWireSize1, "600");
+        // hideOption(RawWireSize1, "700");
         hideOption(RawWireSize1, "750");
-        hideOption(RawWireSize1, "800");
-        hideOption(RawWireSize1, "900");
+        // hideOption(RawWireSize1, "800");
+        // hideOption(RawWireSize1, "900");
         hideOption(RawWireSize1, "1000");
         hideOption(RawWireSize1, "1250");
         hideOption(RawWireSize1, "1500");

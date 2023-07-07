@@ -1,6 +1,7 @@
 const btnEl = document.getElementById("btn");
 
 const RawAmount1 = document.getElementById("Amount1");
+const RawAmp = document.getElementById("amperage");
 const RawWireSize1 = document.getElementById("WireSize1");
 const RawWireSize2 = document.getElementById("WireSize2");
 const Rawamperage = document.getElementById("amperage");
@@ -167,8 +168,15 @@ const HDPE155 = {
     "78": 1807.43, "103": 2973.63, "129": 4545.79, "155": 6441.33, "200": 10918.96, "275": 16960.37
 };
 
+// Amperage select
+const amp = {
+    "12": 30, "10": 60, "8": 100, "6": 200, "4": 300, "3": 400, "2": 500, "1": 600, "1/0": 800,
+    "2/0": 1000, "3/0": 1200, "4/0": 1600, "250": 2000, "350": 2500, "400": 3000,
+    "500": 4000, "700": 5000, "800": 6000 
+};
+
 function swap() {
-    if (!Rawcheckbox.checked) {
+    if (Rawcheckbox.checked) {
         RawWireSize2.style.visibility = 'visible';
         labelManual.style.visibility = 'visible';
         Rawamperage.style.visibility = 'hidden';
@@ -213,44 +221,52 @@ function calc() {
     const amount1 = RawAmount1.value;
     const wireSize1 = RawWireSize1.value;
     const wireSize2 = RawWireSize2.value;
+    const Amp = RawAmp.value;
     const type = RawType.value;
     const Ctype = RawCType.value;
     var area = 0;
     var diameter = 0;
+    var bondSize = 0;
+
+    if (Rawcheckbox.checked) {
+        bondSize = wireSize2;
+    } else {
+        bondSize = findLargestValueKey(amp, parseFloat(Amp));
+    }
 
     switch (type) {
         case "RRRU6":
-            area = parseInt(amount1) * parseFloat(RRRU6[wireSize1]) + parseFloat(RRRU6[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RRRU6[wireSize1]) + parseFloat(RRRU6[bondSize]);
             break;
         case "RRRU10":
-            area = parseInt(amount1) * parseFloat(RRRU10[wireSize1]) + parseFloat(RRRU10[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RRRU10[wireSize1]) + parseFloat(RRRU10[bondSize]);
             break;
         case "RRRRRRJ6":
-            area = parseInt(amount1) * parseFloat(RRRRRRJ6[wireSize1]) + parseFloat(RRRRRRJ6[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RRRRRRJ6[wireSize1]) + parseFloat(RRRRRRJ6[bondSize]);
             break;
         case "TTRU":
-            area = parseInt(amount1) * parseFloat(TTRU[wireSize1]) + parseFloat(TTRU[wireSize2]);
+            area = parseInt(amount1) * parseFloat(TTRU[wireSize1]) + parseFloat(TTRU[bondSize]);
             break;
         case "RU1020":
-            area = parseInt(amount1) * parseFloat(RU1020[wireSize1]) + parseFloat(RU1020[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RU1020[wireSize1]) + parseFloat(RU1020[bondSize]);
             break;
         case "RJ1020":
-            area = parseInt(amount1) * parseFloat(RJ1020[wireSize1]) + parseFloat(RJ1020[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RJ1020[wireSize1]) + parseFloat(RJ1020[bondSize]);
             break;
         case "RU20":
-            area = parseInt(amount1) * parseFloat(RU20[wireSize1]) + parseFloat(RU20[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RU20[wireSize1]) + parseFloat(RU20[bondSize]);
             break;
         case "RJ10":
-            area = parseInt(amount1) * parseFloat(RJ10[wireSize1]) + parseFloat(RJ10[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RJ10[wireSize1]) + parseFloat(RJ10[bondSize]);
             break;
         case "RJ20":
-            area = parseInt(amount1) * parseFloat(RJ20[wireSize1]) + parseFloat(RJ20[wireSize2]);
+            area = parseInt(amount1) * parseFloat(RJ20[wireSize1]) + parseFloat(RJ20[bondSize]);
             break;
         case "TT":
-            area = parseInt(amount1) * parseFloat(TT[wireSize1]) + parseFloat(TT[wireSize2]);
+            area = parseInt(amount1) * parseFloat(TT[wireSize1]) + parseFloat(TT[bondSize]);
             break;
         case "TTN":
-            area = parseInt(amount1) * parseFloat(TTN[wireSize1]) + parseFloat(TTN[wireSize2]);
+            area = parseInt(amount1) * parseFloat(TTN[wireSize1]) + parseFloat(TTN[bondSize]);
             break;
         default:
             area = 0;

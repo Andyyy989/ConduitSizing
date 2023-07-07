@@ -56,3 +56,8 @@ p {
 #Ctype option {
     background-color: lightgreen;
 }
+
+#WireSize2,
+label[for="WireSize2"] {
+  visibility: hidden;
+}

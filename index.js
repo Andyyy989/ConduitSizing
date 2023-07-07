@@ -3,9 +3,13 @@ const btnEl = document.getElementById("btn");
 const RawAmount1 = document.getElementById("Amount1");
 const RawWireSize1 = document.getElementById("WireSize1");
 const RawWireSize2 = document.getElementById("WireSize2");
+const Rawamperage = document.getElementById("amperage");
 const result = document.getElementById("result");
 const RawType = document.getElementById("type");
 const RawCType = document.getElementById("Ctype");
+const Rawcheckbox = document.getElementById('myCheckbox');
+const labelAmperage = document.querySelector('label[for="amperage"]');
+const labelManual = document.querySelector('label[for="WireSize2"]');
 
 
 // Data for the wire sizes
@@ -162,6 +166,20 @@ const HDPE155 = {
     "16": 95.44, "21": 153.99, "27": 245.77, "35": 396.81, "41": 524.24, "53": 830, "63": 1217,
     "78": 1807.43, "103": 2973.63, "129": 4545.79, "155": 6441.33, "200": 10918.96, "275": 16960.37
 };
+
+function swap() {
+    if (!Rawcheckbox.checked) {
+        RawWireSize2.style.visibility = 'visible';
+        labelManual.style.visibility = 'visible';
+        Rawamperage.style.visibility = 'hidden';
+        labelAmperage.style.visibility = 'hidden';
+    } else {
+        RawWireSize2.style.visibility = 'hidden';
+        labelManual.style.visibility = 'hidden';
+        Rawamperage.style.visibility = 'visible';
+        labelAmperage.style.visibility = 'visible';
+    }
+}
 
 function findLargestValueKey(obj, target) {
     var closestValue = Infinity;
@@ -336,3 +354,4 @@ function hide() {
 
 btnEl.addEventListener("click", calc);
 RawType.addEventListener("click", hide);
+Rawcheckbox.addEventListener("click", swap);

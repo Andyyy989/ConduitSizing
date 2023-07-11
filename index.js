@@ -341,7 +341,10 @@ function calc() {
             diameter = 0;
     }
 
-    if (amount1 == 0){
+    if (isNaN(amount1)) {
+        result.innerText = `Please enter a valid number`;
+        RawAmount1.value = "";
+    } else if (amount1 == 0){
         result.innerText = `Please enter the number of conductors`;
     } else if (diameter != null){
         result.innerText = `Your Bonding Conductor Size is ${bondSize}AWG \n Your conduit size is ${diameter}mm`;

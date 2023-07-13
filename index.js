@@ -38,7 +38,7 @@ const RRRRRRJ6 = {
 
 const TTRU = {
     "12": 22.56, "10": 27.99, "8": 47.29, "6": 59.72, "4": 77.76, "3": 89.42, "2": 103.51, "1": 137.89, 
-    "1/0": 160.16, "2/0": 187.48, "3/0": 22062, "4/0": 262.45, "250": 320.47, "300": 364.4, "350": 408.64, 
+    "1/0": 160.16, "2/0": 187.48, "3/0": 220。62, "4/0": 262.45, "250": 320.47, "300": 364.4, "350": 408.64, 
     "400": 455.03, "450": 498.36, "500": 540.78, "600": 661.43, "700": 746.03, "750": 788.74, "800": 831.11, 
     "900": 914.88, "1000": 995.38, "1250": 1199.5, "1500": 1499.5, "1750": 1651.8, "2000": 1851.26 
 };
@@ -346,10 +346,12 @@ function calc() {
         RawAmount1.value = "";
     } else if (amount1 == 0){
         result.innerText = `Please enter the number of conductors`;
-    } else if (diameter != null){
+    } else if (Rawcheckbox.checked && isNaN(Rawamperage)) {
+        result.innerText = `Please enter a valid amperage`;
+        Rawamperage.value = "";
+    }else if (diameter != null){
         result.innerText = `Your Bonding Conductor Size is ${bondSize}AWG \n Your conduit size is ${diameter}mm`;
     } else {
-        var b = Rawcheckbox.checked;
         result.innerText = `Can't Find a Suitable Conduit`;
     }
 }

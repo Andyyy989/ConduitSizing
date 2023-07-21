@@ -346,7 +346,7 @@ function calc() {
         RawAmount1.value = "";
     } else if (amount1 == 0){
         result.innerText = `Please enter the number of conductors`;
-    } else if (Rawcheckbox.checked && isNaN(Rawamperage)) {
+    } else if (Rawcheckbox.checked && isNaN(Rawamperage.value)) {
         result.innerText = `Please enter a valid amperage`;
         Rawamperage.value = "";
     }else if (diameter != null){

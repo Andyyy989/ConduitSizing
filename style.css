@@ -59,7 +59,7 @@ p {
 
 #amperage,
 label[for="amperage"] {
-  visibility: hidden;
+  visibility: visible;
 }
 
 #WireSize2,

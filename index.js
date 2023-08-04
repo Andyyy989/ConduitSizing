@@ -185,11 +185,11 @@ const sizeToAmp = {
 
 function swap() {
     if (!Rawcheckbox.checked) {
-        Rawamperage.style.visibility = 'hidden';
-        labelAmperage.style.visibility = 'hidden';
-    } else {
         Rawamperage.style.visibility = 'visible';
         labelAmperage.style.visibility = 'visible';
+    } else {
+        Rawamperage.style.visibility = 'hidden';
+        labelAmperage.style.visibility = 'hidden';
     }
 }
 
@@ -242,12 +242,12 @@ function calc() {
     var bondSize;
      
     if (Rawcheckbox.checked) {
-        const Amp = RawAmp.value;
-        bondSize = findLargestValueKey(amp, parseFloat(Amp));
+        bondSize = findLargestValueKey(amp, parseFloat(sizeToAmp[wireSize1])); 
     } else if (Rawcheckbox2.checked) {
         bondSize = wireSize2;
     } else {
-        bondSize = findLargestValueKey(amp, parseFloat(sizeToAmp[wireSize1])); 
+        const Amp = RawAmp.value;
+        bondSize = findLargestValueKey(amp, parseFloat(Amp));
     }
 
     switch (type) {
@@ -346,7 +346,7 @@ function calc() {
         RawAmount1.value = "";
     } else if (amount1 == 0){
         result.innerText = `Please enter the number of conductors`;
-    } else if (Rawcheckbox.checked && isNaN(Rawamperage)) {
+    } else if (Rawcheckbox.checked && isNaN(Rawamperage.value)) {
         result.innerText = `Please enter a valid amperage`;
         Rawamperage.value = "";
     }else if (diameter != null){
